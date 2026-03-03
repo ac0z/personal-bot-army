@@ -6,7 +6,7 @@ sqlalchemy==2.0.32
 psycopg[binary]==3.2.1
 
 redis==5.0.8
-rq==1.16.2
+rq==2.1.0
 rq-scheduler==0.14.0
 
 pydantic-settings==2.4.0
