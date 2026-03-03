@@ -50,7 +50,7 @@ services:
         condition: service_healthy
       postgres:
         condition: service_healthy
-    command: ["rq", "worker", "--url", "${REDIS_URL}", "default"]
+    command: ["bash", "-lc", "rq worker --url \"$REDIS_URL\" default"]
 
   scheduler:
     build:
@@ -61,7 +61,7 @@ services:
     depends_on:
       redis:
         condition: service_healthy
-    command: ["rqscheduler", "--url", "${REDIS_URL}"]
+    command: ["bash", "-lc", "rqscheduler --url \"$REDIS_URL\""]
 
   caddy:
     image: caddy:2
