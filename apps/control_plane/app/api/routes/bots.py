@@ -11,9 +11,10 @@ def get_bots():
 
 @router.post("/schedules/ensure")
 def schedules_ensure():
-    ensure_schedules()
-    return {"ok": True}
+    result = ensure_schedules()
+    return {"ok": True, **result}
 
+    
 @router.post("/{bot_name}/{job_name}/run")
 def run_job(bot_name: str, job_name: str):
     q = get_queue("default")
